@@ -1,0 +1,69 @@
+import java.util.Scanner;
+public class warshall{
+private int V;
+private boolean[][]tc;
+public void getTC(int[][]graph){
+     this.V=graph.length;
+     tc=new boolean[V][V];
+     for(int i=0;i<V;i++){
+         for(int j=0;j<V;j++)
+            if(graph[i][j]!=0)
+              tc[i][j]=true;
+              }
+     for(int i=0;i<V;i++){
+         for(int j=0;j<V;j++)
+         { if(tc[j][i])
+              for(int k=0;k<V;k++)
+           if(tc[j][i]&&tc[i][k])
+              tc[j][k]=true;
+         }
+         }
+}
+
+public void displayTC()
+{
+  system.out.println("/n transitive closure:");
+  system.out,print();
+  for(int v=0;v<V;v++){
+  system.out.print(v+"");
+  for(int w=0;w<V;w++)
+  {  if(tc[v][w])
+      system.out.print("1");
+     else
+       system.out.print("0");
+   }
+   system.out.print();
+   }
+   }
+   
+   public static void main(string args[]){
+   Scanner scan= new Scanner(System.in);
+    system.out.println("warshall algorithm test\n");
+    Warshall w=new Warshall();
+    
+     system.out.print("Enter number of vertices\n");
+     int V = scan.nextInt();
+     
+      system.out.print("enter the matrix\n");
+      int[][]graph=new int[v][v];
+       for(int i=0;i<V;i++)
+         for(int j=0;j<V;j++)
+           graph[i][j]=scan.nextInt();
+      w.getTC(graph);
+      w.displayTC();
+      }
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+  
